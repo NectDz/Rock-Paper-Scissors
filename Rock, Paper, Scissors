@@ -1,0 +1,100 @@
+import random
+import time
+
+# Comp Move
+move = ("Rock", "Paper", "Scisscor")
+
+comp = random.choice(move)
+
+# Score
+score = 0
+comp_score = 0
+counter = 0
+
+# Start Message
+print("- Welcome to Kevin's Rock Paper Scisscor Game -")
+print("=             *  Best of 5  *                =")
+time.sleep(0.1)
+print("----------------------------------------------")
+print("")
+def main():
+  global score
+  global comp_score
+  global counter
+  # Main
+  while True:
+    # First Portion
+    user = input("Please enter 'r' for Rock, 'p' for Paper, or 's' Scisscor: ")
+    user = ('r','p','s')
+    user = random.choice(user)
+    # Second Portion
+    if comp == 'Rock' and user == 'p' or comp == 'Scisscor' and user == 'r' or comp == 'Paper'and user == 's':
+      score += 1 
+      counter += 1
+      time.sleep(1)
+      print("----------------------------------------------")
+      print("- You have won! -")
+      print("----------------------------------------------")
+      print("Your score is", score, "\nComputer score is" , comp_score)
+      print("")
+    elif comp == 'Rock' and user == 's' or comp == 'Scisscor' and user == 'p' or comp == 'Paper' and user == 'r':
+      comp_score += 1
+      counter += 1
+      time.sleep(1)
+      print("----------------------------------------------")
+      print("- You have lost! -")
+      print("----------------------------------------------")
+      print("Your score is", score, "\nComputer score is" , comp_score)
+      print("")
+    else :
+      time.sleep(1)
+      counter += 1
+      print("----------------------------------------------")
+      print("- You have tied! -")
+      print("----------------------------------------------")
+      print("Your score is", score, "\nComputer score is" , comp_score)
+      print("")
+      # Third Portion
+    if counter == 5:
+      time.sleep(1)
+      print("= You have reached 5 rounds! =")
+      print("")
+      quit = input("Do you wish to continue? Y/N: ")
+      print("----------------------------------------------")
+      quit = quit.upper()
+      if quit == 'Y':
+        time.sleep(1)
+        counter = 0
+        score = 0
+        comp_score = 0
+        print("")
+        print("Starting back up...")
+        time.sleep(1)
+        print("----------------------------------------------")
+        print("")
+        print("- Welcome to Kevin's Rock Paper Scisscor Game -")
+        print("=             *  Best of 5  *                =")
+        time.sleep(0.1)
+        print("----------------------------------------------")
+        print("")
+      elif quit == 'N':
+        time.sleep(1)
+        print("Ending game...")
+        print("----------------------------------------------")
+        break
+      else :
+        counter = 0
+        score = 0
+        comp_score = 0
+        time.sleep(1)
+        print("Did not understand re-starting game anyways...")
+        print("----------------------------------------------")
+        time.sleep(1)
+        print("")
+        print("- Welcome to Kevin's Rock Paper Scisscor Game -")
+        print("=             *  Best of 5  *                =")
+        time.sleep(0.1)
+        print("----------------------------------------------")
+        print("")
+
+main()
